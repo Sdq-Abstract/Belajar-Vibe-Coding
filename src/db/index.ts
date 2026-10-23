@@ -4,12 +4,12 @@ import { Elysia } from "elysia";
 import * as schema from "../schema";
 
 // Initialize PostgreSQL pool using DATABASE_URL from .env
-const pool = new Pool({
+export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
 // Create Drizzle client
-const dbClient = drizzle(pool, { schema });
+export const dbClient = drizzle(pool, { schema });
 
 /**
  * Elysia plugin that injects the Drizzle client into the context.
